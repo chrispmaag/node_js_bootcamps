@@ -5,7 +5,7 @@ const sendEmail = require('../utils/sendEmail');
 const User = require('../models/User');
 
 // @desc    Register user
-// @route   POST /app/v1/auth/register
+// @route   POST /api/v1/auth/register
 // @access  Public
 exports.register = asyncHandler(async (req, res, next) => {
   const { name, email, password, role } = req.body;
@@ -22,7 +22,7 @@ exports.register = asyncHandler(async (req, res, next) => {
 });
 
 // @desc    Login user
-// @route   POST /app/v1/auth/login
+// @route   POST /api/v1/auth/login
 // @access  Public
 exports.login = asyncHandler(async (req, res, next) => {
   const { email, password } = req.body;
@@ -50,7 +50,7 @@ exports.login = asyncHandler(async (req, res, next) => {
 });
 
 // @desc    Get current logged in user
-// @route   GET /app/v1/auth/me
+// @route   GET /api/v1/auth/me
 // @access  Private
 exports.getMe = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.user.id);
@@ -62,7 +62,7 @@ exports.getMe = asyncHandler(async (req, res, next) => {
 });
 
 // @desc    Update user details
-// @route   PUT /app/v1/auth/updatedetails
+// @route   PUT /api/v1/auth/updatedetails
 // @access  Private
 exports.updateDetails = asyncHandler(async (req, res, next) => {
   const fieldsToUpdate = {
@@ -82,7 +82,7 @@ exports.updateDetails = asyncHandler(async (req, res, next) => {
 });
 
 // @desc    Update password
-// @route   PUT /app/v1/auth/updatepassword
+// @route   PUT /api/v1/auth/updatepassword
 // @access  Private
 exports.updatePassword = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.user.id).select('+password');
@@ -99,7 +99,7 @@ exports.updatePassword = asyncHandler(async (req, res, next) => {
 });
 
 // @desc    Forgot password
-// @route   POST /app/v1/auth/forgotpassword
+// @route   POST /api/v1/auth/forgotpassword
 // @access  Public
 exports.forgotPassword = asyncHandler(async (req, res, next) => {
   const user = await User.findOne({ email: req.body.email });
@@ -146,7 +146,7 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
 });
 
 // @desc    Reset password
-// @route   PUT /app/v1/auth/resetpassword/:resettoken
+// @route   PUT /api/v1/auth/resetpassword/:resettoken
 // @access  Public
 exports.resetPassword = asyncHandler(async (req, res, next) => {
   // Get hashed token
