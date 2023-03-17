@@ -2,6 +2,8 @@
 
 Backend API for Devcamper application, which is a bootcamp directory website. Uses NodeJS, Express, and MongoDB.
 
+Deployed to [cpmprojects.io](https://cpmprojects.io)
+
 ## Usage
 
 Rename "config/config.env.env" to "config/config.env" and update the values/settings to your own
