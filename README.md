@@ -4,6 +4,8 @@ Backend API for Devcamper application, which is a bootcamp directory website. Us
 
 Deployed to [cpmprojects.io](https://cpmprojects.io)
 
+![Deployed routes](/public/deployment_snapshot.jpg)
+
 ## Usage
 
 Rename "config/config.env.env" to "config/config.env" and update the values/settings to your own
